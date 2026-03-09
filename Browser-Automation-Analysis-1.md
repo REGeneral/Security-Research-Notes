@@ -1,6 +1,6 @@
 # Browser Automation Analysis: Protocol & Request-Level Signals
 
-This document outlines several HTTP level signals that can be used to detect automated traffic. These signals are based on browser consistency validation, protocol anomalies, and header structure analysis. Modern bot detection systems rarely rely on a single signal. Instead, they combine many weak signals to identify automated behavior.
+This section outlines several protocol and request-level signals that can be used to detect automated traffic. These signals are based on browser consistency validation, protocol anomalies, and header structure analysis. Modern bot detection systems rarely rely on a single signal. Instead, they combine many weak signals to identify automated behavior.
 
 ### Client Hint Consistency
 
