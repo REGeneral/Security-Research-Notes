@@ -61,3 +61,28 @@ Request Body:
 awidjawd%2ecom
 
 Actual length: 14
+### Encoding and Path Normalization
+
+Attackers frequently manipulate URL paths using encoding techniques in order to bypass input filters or Web Application Firewall (WAF) rules.
+
+Common examples include percent-encoded characters such as:
+```
+/  -> %2F  
+\  -> %5C  
+.  -> %2E  
+```
+However, encoding is not limited to structural characters. In some cases attackers may encode normal characters as well:
+```
+o -> %6F
+```
+While this does not change the path structure, it can expose inconsistencies in how different layers normalize requests. For example, a filter may compare the raw encoded string while the backend application decodes it before processing. This can lead to situations where encoded characters bypass simple pattern matching rules.
+
+Attackers often combine encoding with other techniques such as:
+
+- path traversal sequences (`../`)
+- double encoding (`%252F`, `%252E`)
+- mixed case paths
+- additional path separators
+- Overlong UTF-8 Encodings
+
+These techniques attempt to exploit differences in how requests are normalized across different components of the system.
